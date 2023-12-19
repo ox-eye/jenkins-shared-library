@@ -14,7 +14,7 @@ def call(Map config = [:]) {
     String release = config.getOrDefault("releas",'release')
     String excludes = config.getOrDefault("excludes",'')
     script {
-        docker.image('ghcr.io/ox-eye/github-actions/oxeye-scan:v0.0.19').inside("--pull always -u 0 --entrypoint=") {
+        docker.image('ghcr.io/ox-eye/github-actions/oxeye-scan:v0.0.23').inside("--pull always -u 0 --entrypoint=") {
             sh 'git config --global --add safe.directory "*"'
             sh "/entrypoint.sh ${token} ${host} ${client_id} ${secret} ${workspace_id} ${release} \"${excludes}\""
         }
