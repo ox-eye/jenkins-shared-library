@@ -11,7 +11,7 @@ def call(Map config = [:]) {
     String workspace_id = config.getOrDefault("workspace_id",'')
     if (workspace_id == '')
         error("Miissing workspace_id")
-    String release = config.getOrDefault("releas",'release')
+    String release = config.getOrDefault("release",'release')
     String excludes = config.getOrDefault("excludes",'')
     script {
         docker.image('ghcr.io/ox-eye/github-actions/oxeye-scan:v0.0.23').inside("--pull always -u 0 --entrypoint=") {
